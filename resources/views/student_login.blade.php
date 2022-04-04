@@ -11,8 +11,29 @@
     <h1>Student Login</h1>
     <form action="/slogin" method="POST">
     {{ csrf_field() }}
-        <input type="text" name="username"><br><br>
-        <input type="password" name="password"><br><br>
+    <div class="col-md-6">
+        <input type="text" name="username"><br>
+        <span class="text-danger">
+            @php
+                foreach ($errors->get('username') as $message) 
+                {
+                    echo $message;
+                }
+            @endphp
+        </span>
+    </div>
+    <div class="col-md-6">
+    <br> <input type="password" name="password"><br>
+        <span class="text-danger">
+            @php
+                foreach ($errors->get('password') as $message) 
+                {
+                    echo $message;
+                }
+            @endphp
+        </span>
+    </div>
+    <br>
         <button type="submit">Login</button>  
     </form>
 </body>

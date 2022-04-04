@@ -29,9 +29,8 @@
               </tr>
           </thead>
           <tbody>
-              @foreach($c as $i)
+              @foreach($s as $i)
               @if($i->course==$yourcourse) 
-              {{-- @if($i->course=="B Tech") --}} 
                 <tr>
                     <td>{{$i->name}}</td>
                     <td>{{$i->username}}</td>
@@ -52,6 +51,16 @@
       
 
       <h2>All Teachers</h2>
+      <form action="" class="col-3">
+      <div class="form-group">
+              <label for="">Search</label>
+              <input type="search" name="search" id="" class="form-control" placeholder="" value="{{$search}}">
+            </div>
+            <button class="btn btn-primary">Search</button>
+            <a href="{{url('/tprofilee')}}">
+                <button class='btn btn-primary' type="button">Reset</button>
+                </a>
+        </form>
       <table class="table">
       <thead>
               <tr>
@@ -81,7 +90,9 @@
               @endforeach
           </tbody>
       </table>
-
+      <div class="row">
+          {{$t->links()}}
+      </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 

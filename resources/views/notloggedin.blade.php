@@ -11,7 +11,7 @@
     <title>Hello</title>
   </head>
 <body>
-    <h1>Does not exist</h1>
+    <h1>Your session is of different role.</h1>
 
     <a href="{{url('/')}}"> 
         <button class="btn btn-primary">Back</button>    
