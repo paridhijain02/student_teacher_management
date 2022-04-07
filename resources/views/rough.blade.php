@@ -27,3 +27,17 @@
 
 
           <h1>{{$i->course}}</h1>
+
+
+
+
+    <form action="" class="col-3">
+    <div class="form-group">
+            <label for="">Search</label>
+            <input type="search" name="ssearch" id="" class="form-control" placeholder="" value="{{$ssearch}}">
+    </div>
+        <button class="btn btn-primary">Search</button>
+        <a href="{{url('/aprofilee')}}">
+            <button class='btn btn-primary' type="button">Reset</button>
+            </a>
+    </form>

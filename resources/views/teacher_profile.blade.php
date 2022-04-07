@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello</title>
+    <title>Teacher Profile</title>
   </head>
 <body>
 </html><h1>Hello teacher, {{session('username')}}  </h1>
@@ -29,9 +29,8 @@
               </tr>
           </thead>
           <tbody>
-              @foreach($c as $i)
+              @foreach($s as $i)
               @if($i->course==$yourcourse) 
-              {{-- @if($i->course=="B Tech") --}} 
                 <tr>
                     <td>{{$i->name}}</td>
                     <td>{{$i->username}}</td>
@@ -51,7 +50,8 @@
       </table>
       
 
-      <h2>All Teachers</h2>
+      <h2>Course Teachers</h2>
+      
       <table class="table">
       <thead>
               <tr>
@@ -62,8 +62,8 @@
               </tr>
           </thead>
           <tbody>
-              @foreach($t as $i)
-                {{--@if($i->course=="B Tech")--}}
+            @foreach($t as $i)
+              @if($i->course==$yourcourse) 
                 <tr>
                     <td>{{$i->name}}</td>
                     <td>{{$i->username}}</td>
@@ -76,12 +76,12 @@
                             <button class="btn btn-primary">Edit</button>    
                         </a>  
                     </td>  
-              </tr>
-             {{--@endif--}} 
-              @endforeach
+                </tr>
+              @endif
+            @endforeach
           </tbody>
       </table>
-
+      
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
