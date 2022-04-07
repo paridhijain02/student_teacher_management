@@ -10,47 +10,59 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/','ProjectController@welcome')->name('register.welcome');
+
+Route::get('/slogin','ProjectController@studentLogin')->name('register.slogin');
+Route::post('/slogin','ProjectController@studentPostLogin');
+
+Route::get('/tlogin','ProjectController@teacherLogin')->name('register.tlogin');
+Route::post('/tlogin','ProjectController@teacherPostLogin');
+
+Route::get('/alogin','ProjectController@adminLogin')->name('register.alogin');
+Route::post('/alogin','ProjectController@adminPostLogin');
+
+Route::get('/ssignup','ProjectController@studentRegistered')->name('sregister.signup');
+Route::post('/ssignups','ProjectController@studentStore');
+
+Route::get('/tsignup','ProjectController@teacherRegistered')->name('tregister.signup');
+Route::post('/tsignups','ProjectController@teacherStore');
+
+Route::get('/sview','ProjectController@studentView')->name('student.view');
+Route::get('/tview','ProjectController@teacherView')->name('teacher.view');
+
+Route::any('/sprofilee', 'ProjectController@studentProfile');
+Route::any('/tprofilee', 'ProjectController@teacherProfile');
+Route::any('/aprofilee', 'ProjectController@adminProfile');
+Route::get('/notexist','ProjectController@notExist');
+Route::get('/notloggedin','ProjectController@notLoggedIn');
+
+Route::get('/tprofilee/s_delete/{id}','ProjectController@studentDelete');
+Route::get('/tprofilee/s_edit/{id}','ProjectController@studentEdit');
+Route::post('/tprofilee/s_update/{id}','ProjectController@studentUpdate');
+
+Route::get('/tprofilee/t_delete/{id}','ProjectController@teacherDelete');
+Route::get('/tprofilee/t_edit/{id}','ProjectController@teacherEdit');
+Route::post('/tprofilee/t_update/{id}','ProjectController@teacherUpdate');
+
+Route::get('/aprofilee/s_delete/{id}','ProjectController@studentDeletebyadmin');
+Route::get('/aprofilee/s_edit/{id}','ProjectController@studentEditbyadmin');
+Route::post('/aprofilee/s_update/{id}','ProjectController@studentUpdatebyadmin');
+
+Route::get('/aprofilee/t_delete/{id}','ProjectController@teacherDeletebyadmin');
+Route::get('/aprofilee/t_edit/{id}','ProjectController@teacherEditbyadmin');
+Route::post('/aprofilee/t_update/{id}','ProjectController@teacherUpdatebyadmin');
 
 
+Route::get('/create_assignment','ProjectController@createNewAssignment');
+Route::post('/create_assignment','ProjectController@createNewAssignmentPost');
 
-Route::get('/ssignup','register_con@screate')->name('sregister.signup');
-Route::post('/ssignups','register_con@sstore');
+Route::get('/my_assignments','ProjectController@teacherMyAsssignment');
 
-Route::get('/tsignup','register_con@tcreate')->name('tregister.signup');
-Route::post('/tsignups','register_con@tstore');
+Route::get('/assignments_delete/{id}','ProjectController@assignmentDelete');
 
-Route::get('/sview','register_con@sview')->name('student.view');
-Route::get('/tview','register_con@tview')->name('teacher.view');
-
-// Route::get('/','register_con@login')->name('register.login');
-// Route::post('/','register_con@post_login');
-
-Route::get('/slogin','register_con@slogin')->name('register.slogin');
-Route::post('/slogin','register_con@spost_login');
-
-Route::get('/tlogin','register_con@tlogin')->name('register.tlogin');
-Route::post('/tlogin','register_con@tpost_login');
-
-Route::get('/tprofilee/s_delete/{id}','register_con@s_delete');
-Route::get('/tprofilee/s_edit/{id}','register_con@s_edit');
-Route::post('/tprofilee/s_update/{id}','register_con@s_update');
-
-Route::get('/tprofilee/t_delete/{id}','register_con@t_delete');
-Route::get('/tprofilee/t_edit/{id}','register_con@t_edit');
-Route::post('/tprofilee/t_update/{id}','register_con@t_update');
-
-Route::get('/create_assignment','register_con@create_assignment');
-Route::post('/create_assignment','register_con@create_assignment_post');
-
-Route::get('/my_assignments','register_con@my_assignments');
-
-Route::get('/assignments_delete/{id}','register_con@assignments_delete');
-
-Route::get('/notexist','register_con@notexist');
-
-Route::any('/sprofilee', 'register_con@sprofile');
-
-Route::any('/tprofilee', 'register_con@tprofile');
+Route::get('/sprofilee/assignment_write/{id}','ProjectController@assignmentWrite');
+Route::post('/sprofilee/assignment_write_post/{id}','ProjectController@assignmentWritePost');
+Route::get('/student_assignment_view','ProjectController@studentAssignmentToTeacher');
 
 Route::any('/slogout', function ()
 {
@@ -60,6 +72,7 @@ Route::any('/slogout', function ()
     }
     return redirect("/slogin");
 });
+
 Route::any('/tlogout', function ()
 {
     if(session()->has('username'))
@@ -68,11 +81,17 @@ Route::any('/tlogout', function ()
     }
     return redirect("/tlogin");
 });
-//Route::get('/youredit/{id}','register_con@youredit');
+Route::any('/alogout', function ()
+{
+    if(session()->has('username'))
+    {
+        session()->pull('username',null);
+    }
+    return redirect("/alogin");
+});
 
 
-Route::get('/','register_con@welcome')->name('register.welcome');
 
-Route::get('/sprofilee/assignment_write/{id}','register_con@assignment_write');
-Route::post('/sprofilee/assignment_write_post/{id}','register_con@assignment_write_post');
-Route::get('/student_assignment_view','register_con@student_assignment_view');
+// Route::get('/','ProjectController@login')->name('register.login');
+// Route::post('/','ProjectController@post_login');
+//Route::get('/youredit/{id}','ProjectController@youredit');
