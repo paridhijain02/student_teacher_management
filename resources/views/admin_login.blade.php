@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Login</title>
+    <title>Admin Login</title>
     <style>
         *{
             padding: 0;
@@ -60,12 +60,13 @@
         }
     </style>
 </head>
+
 <body>
     <div id="contact">
         <div class="box">
-            <form action="/tlogin" method="POST">
+            <form action="/alogin" method="POST">
             {{ csrf_field() }}
-            <h1>Teacher Login</h1>
+            <h1>Admin Login</h1>
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" placeholder="Enter username" class="form-control" name="username" value="{{old('username')}}">
@@ -98,3 +99,4 @@
     </div>
 </body>
 </html>
+<!--rgb(201, 197, 197);-->

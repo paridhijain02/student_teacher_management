@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Teacher Profile</title>
+    <title>Teacher Admin</title>
     <style>
             .center {
                 justify-content: center;
@@ -23,14 +23,19 @@
   </head>
 <body>
     <div class="center">
-    <h1>Hello teacher, {{session('username')}}  </h1>
-    </div>
-        @foreach($you as $i)
-            @php
-                $yourcourse=$i->course;
-            @endphp
-        @endforeach
-        <h2>Course students</h2>
+    <h1>Hello admin, {{session('username')}}  </h1> 
+    </div>      
+    <h2>All Students</h2>
+    <form action="" class="col-3">
+        <div class="form-group">
+            <label for="">Search</label>
+            <input type="search" name="ssearch" id="" class="form-control" placeholder="" value="{{$ssearch}}">
+        </div>
+        <button class="btn btn-primary">Search</button>
+        <a href="{{url('/aprofilee')}}">
+            <button class='btn btn-primary' type="button">Reset</button>
+        </a>
+      </form>
 <table class="table">
       <thead>
               <tr>
@@ -42,28 +47,36 @@
           </thead>
           <tbody>
               @foreach($s as $i)
-              @if($i->course==$yourcourse) 
                 <tr>
                     <td>{{$i->name}}</td>
                     <td>{{$i->username}}</td>
                     <td>{{$i->course}}</td>
                     <td>   
-                        <a href="{{url('/tprofilee/s_delete/')}}/{{$i->id}}"> 
+                        <a href="{{url('/aprofilee/s_delete/')}}/{{$i->id}}"> 
                             <button class="btn btn-danger">Delete</button>    
                         </a>   
-                        <a href="{{url('/tprofilee/s_edit/')}}/{{$i->id}}"> 
+                        <a href="{{url('/aprofilee/s_edit/')}}/{{$i->id}}"> 
                             <button class="btn btn-primary">Edit</button>    
                         </a>  
                     </td>
               </tr>
-              @endif
               @endforeach
           </tbody>
       </table>
-      
-
-      <h2>Course Teachers</h2>
-      
+      <div class="row">
+          {{$s->links()}}
+      </div>
+      <h2>All Teachers</h2>
+      <form action="" class="col-3">
+        <div class="form-group">
+            <label for="">Search</label>
+            <input type="search" name="tsearch" id="" class="form-control" placeholder="" value="{{$tsearch}}">
+        </div>
+        <button class="btn btn-primary">Search</button>
+        <a href="{{url('/aprofilee')}}">
+            <button class='btn btn-primary' type="button">Reset</button>
+        </a>
+      </form>
       <table class="table">
       <thead>
               <tr>
@@ -74,40 +87,31 @@
               </tr>
           </thead>
           <tbody>
-            @foreach($t as $i)
-              @if($i->course==$yourcourse) 
+              @foreach($t as $i)
                 <tr>
                     <td>{{$i->name}}</td>
                     <td>{{$i->username}}</td>
                     <td>{{$i->course}}</td>
                     <td>   
-                        <a href="{{url('/tprofilee/t_delete/')}}/{{$i->id}}"> 
+                        <a href="{{url('/aprofilee/t_delete/')}}/{{$i->id}}"> 
                             <button class="btn btn-danger">Delete</button>    
                         </a>   
-                        <a href="{{url('/tprofilee/t_edit/')}}/{{$i->id}}"> 
+                        <a href="{{url('/aprofilee/t_edit/')}}/{{$i->id}}"> 
                             <button class="btn btn-primary">Edit</button>    
                         </a>  
                     </td>  
-                </tr>
-              @endif
-            @endforeach
+              </tr>
+              @endforeach
           </tbody>
       </table>
-      
+      <div class="row">
+          {{$t->links()}}
+      </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-
-        <a href="{{url('/create_assignment')}}"> 
-            <button class="btn btn-primary">Create Assignment</button>    
-        </a>  
-        <a href="{{url('/my_assignments')}}"> 
-            <button class="btn btn-primary">My Assignments</button>    
-        </a>  
-        <a href="{{url('/tlogout')}}"> 
+ 
+        <a href="{{url('/alogout')}}"> 
             <button class="btn btn-primary">Logout</button>    
-        </a>  
-        <a href="{{url('/student_assignment_view')}}"> 
-            <button class="btn btn-primary">View students assignments</button>    
-        </a>  
+        </a>   
 </body>
 </html>
