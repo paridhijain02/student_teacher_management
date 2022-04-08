@@ -11,6 +11,24 @@
             padding: 0;
             margin: 0;
         }
+        .btn
+        {
+            
+            position: relative;
+            padding: 6px 30px;
+            border: 2px solid black;
+            background-color: rgb(253, 253, 151);
+            color: black;
+            margin: 15px;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn:hover
+        {
+            background-color: black;
+            color: rgb(253, 253, 151);
+        }
         #contact{
             display: flex;
             justify-content: center;

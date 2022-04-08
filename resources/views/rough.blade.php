@@ -41,3 +41,67 @@
             <button class='btn btn-primary' type="button">Reset</button>
             </a>
     </form>
+
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{route('register.welcome')}}">STM</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="{{route('register.welcome')}}">Welcome</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="{{route('register.slogin')}}">Student Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="{{route('register.tlogin')}}">Teacher Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="{{route('register.alogin')}}">Admin Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('sregister.signup')}}">Student Register</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('tregister.signup')}}">Teacher Register</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('student.view')}}">Student View</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('teacher.view')}}">Teacher View</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

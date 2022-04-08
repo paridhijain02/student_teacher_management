@@ -10,10 +10,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Teacher Admin</title>
+    <style>
+            .center {
+                justify-content: center;
+                padding-top: 5px;
+                margin: auto;
+                width: 40%;
+                color: navy;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        </style>
   </head>
 <body>
-</html><h1>Hello admin, {{session('username')}}  </h1>
-       
+    <div class="center">
+    <h1>Hello admin, {{session('username')}}  </h1> 
+    </div>      
     <h2>All Students</h2>
     <form action="" class="col-3">
         <div class="form-group">

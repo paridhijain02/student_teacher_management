@@ -10,9 +10,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Teacher Profile</title>
+    <style>
+            .center {
+                justify-content: center;
+                padding-top: 5px;
+                margin: auto;
+                width: 40%;
+                color: navy;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        </style>
   </head>
 <body>
-</html><h1>Hello teacher, {{session('username')}}  </h1>
+    <div class="center">
+    <h1>Hello teacher, {{session('username')}}  </h1>
+    </div>
         @foreach($you as $i)
             @php
                 $yourcourse=$i->course;
