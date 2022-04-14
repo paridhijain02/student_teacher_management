@@ -23,7 +23,18 @@
   </head>
 <body>
     <div class="center">
+        <!--
     <h1>Hello teacher, {{session('username')}}  </h1>
+        -->
+    <h1>Hello Teacher,  
+            @foreach($t as $i)
+            @if($i->username==session('username'))
+                 {{$i->name}}
+            @endif
+              @endforeach
+              </h1>
+
+
     </div>
         @foreach($you as $i)
             @php

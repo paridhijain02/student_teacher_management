@@ -22,8 +22,22 @@
         </style>
   </head>
 <body>
+        @foreach($you as $i)
+            @php
+                $yourname=$i->name;
+            @endphp
+        @endforeach
     <div class="center">
+    <!--
     <h1>Hello Student,  {{session('username')}}</h1>
+        -->
+    <h1>Hello Student,  
+            @foreach($c as $i)
+            @if($i->username==session('username'))
+                 {{$i->name}}
+            @endif
+              @endforeach
+              </h1>
     </div>
 
         @foreach($you as $i)
