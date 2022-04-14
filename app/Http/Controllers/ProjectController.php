@@ -308,6 +308,13 @@ class ProjectController extends Controller
     }
     public function studentDelete($id)
     {
+        $session=session('username');
+        $anystudentbychance=Students::anystudentbychance($session);
+        $anyadminbychance=Admins::anyadminbychance($session);
+        if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+        {
+            return redirect("/notloggedin");
+        }
         $c=Students::find($id);
         if(!is_null($c))
         {
@@ -319,6 +326,13 @@ class ProjectController extends Controller
     {
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $c=Students::find($id);
             if(!is_null($c))
             {
@@ -349,6 +363,13 @@ class ProjectController extends Controller
     }
     public function teacherDelete($id)
     {
+        $session=session('username');
+        $anystudentbychance=Students::anystudentbychance($session);
+        $anyadminbychance=Admins::anyadminbychance($session);
+        if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+        {
+            return redirect("/notloggedin");
+        }
         $c=Teachers::find($id);
         if(!is_null($c))
         {
@@ -360,6 +381,13 @@ class ProjectController extends Controller
     {
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $c=Teachers::find($id);
             if(!is_null($c))
             {
@@ -392,6 +420,13 @@ class ProjectController extends Controller
         if(session()->has('username'))
         {
             $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
+            $session=session('username');
             $you=Teachers::you($session);
             $data=compact('you');
             return view('create_assignment')->with($data);
@@ -421,6 +456,13 @@ class ProjectController extends Controller
     {  
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $c=Assignments::get();  
             $session=session('username');
             $you=Teachers::you($session);
@@ -436,6 +478,13 @@ class ProjectController extends Controller
     {  
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $as=Assignments::find($id);
             if(!is_null($as))
             {
@@ -452,6 +501,13 @@ class ProjectController extends Controller
     {
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anyteacherbychance=Teachers::anyteacherbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anyteacherbychance!='[]' || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $session=session('username');
             $you=Students::you($session); 
             $a=Assignments::find($id);
@@ -492,6 +548,13 @@ class ProjectController extends Controller
     {
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyadminbychance=Admins::anyadminbychance($session);
+            if($anystudentbychance!="[]" || $anyadminbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $as=Studentassignments::get();  
             $session=session('username');
             $you=Teachers::you($session);
@@ -508,6 +571,13 @@ class ProjectController extends Controller
 
     public function studentDeletebyadmin($id)
     {
+        $session=session('username');
+        $anystudentbychance=Students::anystudentbychance($session);
+        $anyteacherbychance=Teachers::anyteacherbychance($session);
+        if($anystudentbychance!="[]" || $anyteacherbychance!="[]")
+        {
+            return redirect("/notloggedin");
+        }
         $c=Students::find($id);
         if(!is_null($c))
         {
@@ -519,6 +589,13 @@ class ProjectController extends Controller
     {
         if(session()->has('username'))
         {
+            $session=session('username');
+            $anystudentbychance=Students::anystudentbychance($session);
+            $anyteacherbychance=Teachers::anyteacherbychance($session);
+            if($anystudentbychance!="[]" || $anyteacherbychance!="[]")
+            {
+                return redirect("/notloggedin");
+            }
             $c=Students::find($id);
             if(!is_null($c))
             {
@@ -549,6 +626,13 @@ class ProjectController extends Controller
     }
     public function teacherDeletebyadmin($id)
     {
+        $session=session('username');
+        $anystudentbychance=Students::anystudentbychance($session);
+        $anyteacherbychance=Teachers::anyteacherbychance($session);
+        if($anystudentbychance!="[]" || $anyteacherbychance!="[]")
+        {
+            return redirect("/notloggedin");
+        }
         $c=Teachers::find($id);
         if(!is_null($c))
         {
@@ -558,6 +642,13 @@ class ProjectController extends Controller
     }
     public function teacherEditbyadmin($id)
     {
+        $session=session('username');
+        $anystudentbychance=Students::anystudentbychance($session);
+        $anyteacherbychance=Teachers::anyteacherbychance($session);
+        if($anystudentbychance!="[]" || $anyteacherbychance!="[]")
+        {
+            return redirect("/notloggedin");
+        }
         if(session()->has('username'))
         {
             $c=Teachers::find($id);
